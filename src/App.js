@@ -6,6 +6,8 @@ import {useState} from 'react'
 
 function App() {
   const [task,setTask]=useState('')
+  const [todo,setTodo]=useState([])
+
   return (
     <>
       <input 
@@ -14,7 +16,13 @@ function App() {
           (event)=>setTask(event.target.value)
         }
       /> 
-      <button type='submit'>set to do</button>
+      <button 
+        type='submit' 
+        onClick={
+                 
+        }
+      >set to do</button>
+
     </>
   );
 }
