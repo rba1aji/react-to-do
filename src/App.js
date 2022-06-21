@@ -15,18 +15,6 @@ function App() {
     });
   }
 
-  function Input(){
-    return(
-      <>
-      <input value={task} onChange={(event) => setTask(event.target.value)} /> 
-
-      <button type="submit" onClick={UpdateTodo}>
-        set to do
-      </button>
-      </>
-    )
-  }
-
   function Output() {
     return (
       <ul>
@@ -39,7 +27,10 @@ function App() {
 
   return (
     <>
-      <Input />
+      <input value={task} onChange={(event) => setTask(event.target.value)} />
+      <button type="submit" onClick={UpdateTodo}>
+        set to do
+      </button>
       <Output />
     </>
   );
