@@ -2,11 +2,20 @@ import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 
+import {useState} from 'react'
+
 function App() {
+  const [task,setTask]=useState('')
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <input 
+        value={task}
+        onChange={
+          (event)=>setTask(event.target.value)
+        }
+      /> 
+      <button type='submit'>set to do</button>
+    </>
   );
 }
 
