@@ -4,22 +4,24 @@ import './App.css';
 
 import { useState } from 'react';
 
+let count=0;
+
 function App() {
   const [task, setTask] = useState('');
   const [todo, setTodo] = useState([]);
-  let count=0;
   function UpdateTodo() {
+    count++;
     setTask('');
     setTodo((old) => {
-      return [...old, {todo:task,id:count++}];
+      return [...old, {todo:task,id:count}];
     });
   }
 
   function Output() {
     return (
       <ul>
-        {todo.map((item,index) => {
-          return <li>{item.todo}</li>;
+        {todo.map((item) => {
+          return <li>({item.id}){item.todo}</li>;
         })}
       </ul>
     );
