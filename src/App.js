@@ -7,19 +7,19 @@ import { useState } from 'react';
 function App() {
   const [task, setTask] = useState('');
   const [todo, setTodo] = useState([]);
-
+  let count=0;
   function UpdateTodo() {
     setTask('');
     setTodo((old) => {
-      return [...old, task];
+      return [...old, {todo:task,id:count++}];
     });
   }
 
   function Output() {
     return (
       <ul>
-        {todo.map((i) => {
-          return <li>{i}</li>;
+        {todo.map((item,index) => {
+          return <li>{item.todo}</li>;
         })}
       </ul>
     );
