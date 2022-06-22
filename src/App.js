@@ -19,7 +19,7 @@ function App() {
   }
 
   function enterToSubmit(event){
-    if(event.keyCode==13){
+    if(event.keyCode==13 && task){
       UpdateTodo();
     }
   }
@@ -55,7 +55,9 @@ function App() {
         }
         onKeyDown={enterToSubmit}
       />
-      <button type="submit" onClick={UpdateTodo}>
+      <button type="submit" onClick={UpdateTodo}
+        disabled={!task}
+      >
         set to do
       </button>
       <Output />
