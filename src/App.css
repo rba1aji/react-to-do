@@ -1,3 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-red-500 {
+  background-color: #f56565 !important;
+}

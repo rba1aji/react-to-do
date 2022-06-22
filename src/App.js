@@ -47,7 +47,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <h1 className="text-3xl font-bold underline">TO DO APP</h1>
       <input 
         value={task}
@@ -62,7 +62,7 @@ function App() {
         set to do
       </button>
       <Output />
-    </>
+    </div>
   );
 }
 
