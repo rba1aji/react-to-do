@@ -9,6 +9,7 @@ let count=0;
 function App() {
   const [task, setTask] = useState('');
   const [todo, setTodo] = useState([]);
+
   function UpdateTodo() {
     count++;
     setTask('');
@@ -17,11 +18,29 @@ function App() {
     });
   }
 
+  function enterToSubmit(event){
+    if(event.keyCode==13){
+      UpdateTodo();
+    }
+  }
+
+  function deleteTodo(itemID){
+    setTodo(
+      oldTodo=>oldTodo.filter(item=>item.id!=itemID)
+    );
+  }
+
   function Output() {
     return (
       <ul>
         {todo.map((item) => {
-          return <li>({item.id}){item.todo}</li>;
+          return(
+            <>
+            <li>{item.todo}{'  '}
+            <button onClick={()=>deleteTodo(item.id)}>🗑️</button>
+            </li>
+            </>
+          );
         })}
       </ul>
     );
@@ -29,7 +48,13 @@ function App() {
 
   return (
     <>
-      <input value={task} onChange={(event) => setTask(event.target.value)} />
+      <input 
+        value={task}
+        onChange={
+          (event) => setTask(event.target.value)
+        }
+        onKeyDown={enterToSubmit}
+      />
       <button type="submit" onClick={UpdateTodo}>
         set to do
       </button>
