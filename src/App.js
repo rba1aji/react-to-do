@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
 
 import { useState } from 'react';
 
-let count=0;
+let count = 0;
 
 function App() {
   const [task, setTask] = useState('');
@@ -14,31 +14,31 @@ function App() {
     count++;
     setTask('');
     setTodo((old) => {
-      return [...old, {todo:task,id:count}];
+      return [...old, { todo: task, id: count }];
     });
   }
 
-  function enterToSubmit(event){
-    if(event.keyCode==13 && task){
+  function enterToSubmit(event) {
+    if (event.keyCode == 13 && task) {
       UpdateTodo();
     }
   }
 
-  function deleteTodo(itemID){
-    setTodo(
-      oldTodo=>oldTodo.filter(item=>item.id!=itemID)
-    );
+  function deleteTodo(itemID) {
+    setTodo((oldTodo) => oldTodo.filter((item) => item.id != itemID));
   }
 
   function Output() {
     return (
       <ul>
         {todo.map((item) => {
-          return(
+          return (
             <>
-            <li>{item.todo}{'  '}
-            <button onClick={()=>deleteTodo(item.id)}>🗑️</button>
-            </li>
+              <li>
+                {item.todo}
+                {'  '}
+                <button onClick={() => deleteTodo(item.id)}>🗑️</button>
+              </li>
             </>
           );
         })}
@@ -48,17 +48,13 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">TO DO APP</h1>
-      <input 
+      <h1 className="text-3xl text-center">TO DO APP</h1>
+      <input
         value={task}
-        onChange={
-          (event) => setTask(event.target.value)
-        }
+        onChange={(event) => setTask(event.target.value)}
         onKeyDown={enterToSubmit}
       />
-      <button type="submit" onClick={UpdateTodo}
-        disabled={!task}
-      >
+      <button type="submit" onClick={UpdateTodo} disabled={!task}>
         set to do
       </button>
       <Output />
