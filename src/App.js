@@ -47,7 +47,7 @@ function App() {
             // background:"gray"
           }}>
           <Card.Header className="text-center">
-            your TO DO list
+            YOUR TO DO LIST
           </Card.Header>
           <ListGroup variant="flush">
             {todo.map((item) => {
