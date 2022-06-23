@@ -77,7 +77,7 @@ function App() {
     <div>
       <h1 className="text-center">TO DO APP</h1>
 
-      <Form style={{ margin: 30 }}>
+      <div  style={{ margin: 30 }}>
         <InputGroup className="mb-3">
           <FormControl
             value={task}
@@ -98,7 +98,7 @@ function App() {
             set to do
           </Button>
         </InputGroup>
-      </Form>
+      </div>
 
       <Output />
     </div>
