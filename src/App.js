@@ -50,7 +50,7 @@ function App() {
             borderColor:"black"
           }}
         >
-          <Card.Header className="text-center">YOUR TO DO LIST</Card.Header>
+          <Card.Header className="text-center" style={{borderColor:"black"}}>YOUR TO DO LIST</Card.Header>
           <ListGroup variant="flush">
             {todo.map((item) => {
               return (
