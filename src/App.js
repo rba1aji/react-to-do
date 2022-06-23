@@ -20,7 +20,8 @@ function App() {
   const [task, setTask] = useState('');
   const [todo, setTodo] = useState([]);
 
-  function UpdateTodo() {
+  function UpdateTodo(e) {
+    e.preventDefault();
     count++;
     setTask('');
     setTodo((old) => {
@@ -77,7 +78,9 @@ function App() {
     <div>
       <h1 className="text-center">TO DO APP</h1>
 
-      <Form  style={{ margin: 30 }}>
+      <Form onSubmit={UpdateTodo}
+            style={{ margin: 30 }}
+      >
         <InputGroup className="mb-3">
           <FormControl
             value={task}
@@ -89,7 +92,7 @@ function App() {
           />
           <Button
             type="submit"
-            onClick={UpdateTodo}
+            // onSubmit={UpdateTodo}
             disabled={!task}
             // variant="outline-secondary"
             variant="dark"
