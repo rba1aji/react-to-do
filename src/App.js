@@ -1,31 +1,31 @@
-import React from 'react';
+import React from "react";
 // import logo from './logo.svg';
 // import './App.css';
 
-import { useState } from 'react';
+import { useState } from "react";
 
 let count = 0;
 
 function App() {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [todo, setTodo] = useState([]);
 
   function UpdateTodo() {
     count++;
-    setTask('');
+    setTask("");
     setTodo((old) => {
       return [...old, { todo: task, id: count }];
     });
   }
 
   function enterToSubmit(event) {
-    if (event.keyCode == 13 && task) {
+    if (event.keyCode === 13 && task) {
       UpdateTodo();
     }
   }
 
   function deleteTodo(itemID) {
-    setTodo((oldTodo) => oldTodo.filter((item) => item.id != itemID));
+    setTodo((oldTodo) => oldTodo.filter((item) => item.id !== itemID));
   }
 
   function Output() {
@@ -36,8 +36,14 @@ function App() {
             <>
               <li>
                 {item.todo}
-                {'  '}
-                <button onClick={() => deleteTodo(item.id)}>🗑️</button>
+                {"  "}
+                <span
+                  role="img"
+                  aria-label="delete"
+                  onClick={() => deleteTodo(item.id)}
+                >
+                  🗑️
+                </span>
               </li>
             </>
           );
