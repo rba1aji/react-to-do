@@ -7,7 +7,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap'
 
-let count = 0;
+let count = 0; 
 
 function App() {
   const [task, setTask] = useState("");
