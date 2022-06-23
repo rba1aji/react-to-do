@@ -31,7 +31,7 @@ function App() {
 
   function enterToSubmit(event) {
     if (event.keyCode === 13 && task) {
-      UpdateTodo();
+      UpdateTodo(event);
     }
   }
 
@@ -42,14 +42,14 @@ function App() {
   function Output() {
     return (
       <>
-        <Card style={{ 
+        <Card
+          style={{
             // width: '18rem'
-            margin:30,
+            margin: 30,
             // background:"gray"
-          }}>
-          <Card.Header className="text-center">
-            YOUR TO DO LIST
-          </Card.Header>
+          }}
+        >
+          <Card.Header className="text-center">YOUR TO DO LIST</Card.Header>
           <ListGroup variant="flush">
             {todo.map((item) => {
               return (
@@ -68,6 +68,11 @@ function App() {
                 </>
               );
             })}
+            <div style={{ display: !todo.length ? 'block' : 'none' }}>
+              <ListGroup.Item>
+                Nothing in your to do list may be add some
+              </ListGroup.Item>
+            </div>
           </ListGroup>
         </Card>
       </>
@@ -78,9 +83,7 @@ function App() {
     <div>
       <h1 className="text-center">TO DO APP</h1>
 
-      <Form onSubmit={UpdateTodo}
-            style={{ margin: 30 }}
-      >
+      <Form onSubmit={UpdateTodo} style={{ margin: 30 }}>
         <InputGroup className="mb-3">
           <FormControl
             value={task}
