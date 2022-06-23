@@ -5,7 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
+import { Button, InputGroup, FormControl , Form } from 'react-bootstrap';
 
 let count = 0;
 
@@ -59,6 +59,7 @@ function App() {
     <div>
       <h1 className="text-center">TO DO APP</h1>
 
+      <Form style={{margin:30}}>
       <InputGroup className="mb-3">
         <FormControl
           value={task}
@@ -81,6 +82,7 @@ function App() {
           set to do
         </Button>
       </InputGroup>
+      </Form>
 
       <Output />
     </div>
