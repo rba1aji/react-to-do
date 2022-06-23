@@ -47,6 +47,7 @@ function App() {
             // width: '18rem'
             margin: 30,
             // background:"gray"
+            borderColor:"black"
           }}
         >
           <Card.Header className="text-center">YOUR TO DO LIST</Card.Header>
