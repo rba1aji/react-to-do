@@ -70,7 +70,7 @@ function App() {
               );
             })}
             <div style={{ display: !todo.length ? 'block' : 'none' }}>
-              <ListGroup.Item>
+              <ListGroup.Item className="text-center">
                 Nothing{' '}
                 <span role="img" aria-label="nothing">
                   📭
