@@ -5,7 +5,14 @@ import React from 'react';
 import { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
+import {
+  Button,
+  InputGroup,
+  FormControl,
+  Form,
+  Card,
+  ListGroup,
+} from 'react-bootstrap';
 
 let count = 0;
 
@@ -33,25 +40,36 @@ function App() {
 
   function Output() {
     return (
-      <ul>
-        {todo.map((item) => {
-          return (
-            <>
-              <li>
-                {item.todo}
-                {'  '}
-                <span
-                  role="img"
-                  aria-label="delete"
-                  onClick={() => deleteTodo(item.id)}
-                >
-                  🗑️
-                </span>
-              </li>
-            </>
-          );
-        })}
-      </ul>
+      <>
+        <Card style={{ 
+            // width: '18rem'
+            margin:30,
+            // background:"gray"
+          }}>
+          <Card.Header className="text-center">
+            YOUR TO DO LIST
+          </Card.Header>
+          <ListGroup variant="flush">
+            {todo.map((item) => {
+              return (
+                <>
+                  <ListGroup.Item>
+                    {item.todo}
+                    {'  '}
+                    <span
+                      role="img"
+                      aria-label="delete"
+                      onClick={() => deleteTodo(item.id)}
+                    >
+                      🗑️
+                    </span>
+                  </ListGroup.Item>
+                </>
+              );
+            })}
+          </ListGroup>
+        </Card>
+      </>
     );
   }
 
@@ -59,28 +77,28 @@ function App() {
     <div>
       <h1 className="text-center">TO DO APP</h1>
 
-      <InputGroup className="mb-3">
-        <FormControl
-          value={task}
-          onChange={
-            (event) => setTask(event.target.value)
-          }
-          onKeyDown={enterToSubmit}
-          placeholder=""
-          aria-label=""
-          aria-describedby="basic-addon2"
-        />
-        <Button
-          type="submit"
-          onClick={UpdateTodo}
-          disabled={!task} 
-          // variant="outline-secondary"
-          variant="dark" 
-          id="button-addon2"
-        >
-          set to do
-        </Button>
-      </InputGroup>
+      <Form style={{ margin: 30 }}>
+        <InputGroup className="mb-3">
+          <FormControl
+            value={task}
+            onChange={(event) => setTask(event.target.value)}
+            onKeyDown={enterToSubmit}
+            placeholder=""
+            aria-label=""
+            aria-describedby="basic-addon2"
+          />
+          <Button
+            type="submit"
+            onClick={UpdateTodo}
+            disabled={!task}
+            // variant="outline-secondary"
+            variant="dark"
+            id="button-addon2"
+          >
+            set to do
+          </Button>
+        </InputGroup>
+      </Form>
 
       <Output />
     </div>
