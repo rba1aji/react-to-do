@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 
-import { useState } from "react"; 
+import { useState } from 'react';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-let count = 0; 
+let count = 0;
 
 function App() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState('');
   const [todo, setTodo] = useState([]);
 
   function UpdateTodo() {
     count++;
-    setTask("");
+    setTask('');
     setTodo((old) => {
       return [...old, { todo: task, id: count }];
     });
@@ -39,7 +39,7 @@ function App() {
             <>
               <li>
                 {item.todo}
-                {"  "}
+                {'  '}
                 <span
                   role="img"
                   aria-label="delete"
@@ -57,15 +57,31 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-3xl text-center">TO DO APP</h1>
-      <input
-        value={task}
-        onChange={(event) => setTask(event.target.value)}
-        onKeyDown={enterToSubmit}
-      />
-      <button type="submit" onClick={UpdateTodo} disabled={!task}>
-        set to do
-      </button>
+      <h1 className="text-center">TO DO APP</h1>
+
+      <InputGroup className="mb-3">
+        <FormControl
+          value={task}
+          onChange={
+            (event) => setTask(event.target.value)
+          }
+          onKeyDown={enterToSubmit}
+          placeholder=""
+          aria-label=""
+          aria-describedby="basic-addon2"
+        />
+        <Button
+          type="submit"
+          onClick={UpdateTodo}
+          disabled={!task} 
+          // variant="outline-secondary"
+          variant="dark" 
+          id="button-addon2"
+        >
+          set to do
+        </Button>
+      </InputGroup>
+
       <Output />
     </div>
   );
