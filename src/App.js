@@ -70,7 +70,11 @@ function App() {
             })}
             <div style={{ display: !todo.length ? 'block' : 'none' }}>
               <ListGroup.Item>
-                Nothing in your to do list may be add some
+                Nothing{' '}
+                <span role="img" aria-label="nothing">
+                  📭
+                </span>{' '}
+                in your to do list may be add some
               </ListGroup.Item>
             </div>
           </ListGroup>
