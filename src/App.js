@@ -21,7 +21,7 @@ function App() {
   const [todo, setTodo] = useState([]);
 
   function UpdateTodo(e) {
-    e.preventDefault();
+    e.preventDefault()
     count++;
     setTask('');
     setTodo((old) => {
@@ -31,7 +31,7 @@ function App() {
 
   function enterToSubmit(event) {
     if (event.keyCode === 13 && task) {
-      UpdateTodo();
+      UpdateTodo(event);
     }
   }
 
